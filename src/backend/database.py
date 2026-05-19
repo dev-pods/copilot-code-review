@@ -53,132 +53,132 @@ def init_database():
 
 # Initial database if empty
 initial_activities = {
-    "Chess Club": {
-        "description": "Learn strategies and compete in chess tournaments",
-        "schedule": "Mondays and Fridays, 3:15 PM - 4:45 PM",
+    "Clube de Xadrez": {
+        "description": "Aprenda estratégias e dispute torneios de xadrez",
+        "schedule": "Segundas e sextas, 15:15 - 16:45",
         "schedule_details": {
-            "days": ["Monday", "Friday"],
+            "days": ["Segunda", "Sexta"],
             "start_time": "15:15",
             "end_time": "16:45"
         },
         "max_participants": 12,
         "participants": ["michael@mergington.edu", "daniel@mergington.edu"]
     },
-    "Programming Class": {
-        "description": "Learn programming fundamentals and build software projects",
-        "schedule": "Tuesdays and Thursdays, 7:00 AM - 8:00 AM",
+    "Aula de Programação": {
+        "description": "Aprenda fundamentos de programação e desenvolva projetos de software",
+        "schedule": "Terças e quintas, 07:00 - 08:00",
         "schedule_details": {
-            "days": ["Tuesday", "Thursday"],
+            "days": ["Terça", "Quinta"],
             "start_time": "07:00",
             "end_time": "08:00"
         },
         "max_participants": 20,
         "participants": ["emma@mergington.edu", "sophia@mergington.edu"]
     },
-    "Morning Fitness": {
-        "description": "Early morning physical training and exercises",
-        "schedule": "Mondays, Wednesdays, Fridays, 6:30 AM - 7:45 AM",
+    "Treino Matinal": {
+        "description": "Treinamento físico e exercícios no início da manhã",
+        "schedule": "Segundas, quartas e sextas, 06:30 - 07:45",
         "schedule_details": {
-            "days": ["Monday", "Wednesday", "Friday"],
+            "days": ["Segunda", "Quarta", "Sexta"],
             "start_time": "06:30",
             "end_time": "07:45"
         },
         "max_participants": 30,
         "participants": ["john@mergington.edu", "olivia@mergington.edu"]
     },
-    "Soccer Team": {
-        "description": "Join the school soccer team and compete in matches",
-        "schedule": "Tuesdays and Thursdays, 3:30 PM - 5:30 PM",
+    "Time de Futebol": {
+        "description": "Participe do time de futebol da escola e dispute partidas",
+        "schedule": "Terças e quintas, 15:30 - 17:30",
         "schedule_details": {
-            "days": ["Tuesday", "Thursday"],
+            "days": ["Terça", "Quinta"],
             "start_time": "15:30",
             "end_time": "17:30"
         },
         "max_participants": 22,
         "participants": ["liam@mergington.edu", "noah@mergington.edu"]
     },
-    "Basketball Team": {
-        "description": "Practice and compete in basketball tournaments",
-        "schedule": "Wednesdays and Fridays, 3:15 PM - 5:00 PM",
+    "Time de Basquete": {
+        "description": "Treine e dispute torneios de basquete",
+        "schedule": "Quartas e sextas, 15:15 - 17:00",
         "schedule_details": {
-            "days": ["Wednesday", "Friday"],
+            "days": ["Quarta", "Sexta"],
             "start_time": "15:15",
             "end_time": "17:00"
         },
         "max_participants": 15,
         "participants": ["ava@mergington.edu", "mia@mergington.edu"]
     },
-    "Art Club": {
-        "description": "Explore various art techniques and create masterpieces",
-        "schedule": "Thursdays, 3:15 PM - 5:00 PM",
+    "Clube de Arte": {
+        "description": "Explore técnicas de arte e crie obras-primas",
+        "schedule": "Quintas, 15:15 - 17:00",
         "schedule_details": {
-            "days": ["Thursday"],
+            "days": ["Quinta"],
             "start_time": "15:15",
             "end_time": "17:00"
         },
         "max_participants": 15,
         "participants": ["amelia@mergington.edu", "harper@mergington.edu"]
     },
-    "Drama Club": {
-        "description": "Act, direct, and produce plays and performances",
-        "schedule": "Mondays and Wednesdays, 3:30 PM - 5:30 PM",
+    "Clube de Teatro": {
+        "description": "Atue, dirija e produza peças e apresentações",
+        "schedule": "Segundas e quartas, 15:30 - 17:30",
         "schedule_details": {
-            "days": ["Monday", "Wednesday"],
+            "days": ["Segunda", "Quarta"],
             "start_time": "15:30",
             "end_time": "17:30"
         },
         "max_participants": 20,
         "participants": ["ella@mergington.edu", "scarlett@mergington.edu"]
     },
-    "Math Club": {
-        "description": "Solve challenging problems and prepare for math competitions",
-        "schedule": "Tuesdays, 7:15 AM - 8:00 AM",
+    "Clube de Matemática": {
+        "description": "Resolva desafios e prepare-se para olimpíadas de matemática",
+        "schedule": "Terças, 07:15 - 08:00",
         "schedule_details": {
-            "days": ["Tuesday"],
+            "days": ["Terça"],
             "start_time": "07:15",
             "end_time": "08:00"
         },
         "max_participants": 10,
         "participants": ["james@mergington.edu", "benjamin@mergington.edu"]
     },
-    "Debate Team": {
-        "description": "Develop public speaking and argumentation skills",
-        "schedule": "Fridays, 3:30 PM - 5:30 PM",
+    "Equipe de Debate": {
+        "description": "Desenvolva habilidades de oratória e argumentação",
+        "schedule": "Sextas, 15:30 - 17:30",
         "schedule_details": {
-            "days": ["Friday"],
+            "days": ["Sexta"],
             "start_time": "15:30",
             "end_time": "17:30"
         },
         "max_participants": 12,
         "participants": ["charlotte@mergington.edu", "amelia@mergington.edu"]
     },
-    "Weekend Robotics Workshop": {
-        "description": "Build and program robots in our state-of-the-art workshop",
-        "schedule": "Saturdays, 10:00 AM - 2:00 PM",
+    "Oficina de Robótica (Final de Semana)": {
+        "description": "Monte e programe robôs em nosso laboratório moderno",
+        "schedule": "Sábados, 10:00 - 14:00",
         "schedule_details": {
-            "days": ["Saturday"],
+            "days": ["Sábado"],
             "start_time": "10:00",
             "end_time": "14:00"
         },
         "max_participants": 15,
         "participants": ["ethan@mergington.edu", "oliver@mergington.edu"]
     },
-    "Science Olympiad": {
-        "description": "Weekend science competition preparation for regional and state events",
-        "schedule": "Saturdays, 1:00 PM - 4:00 PM",
+    "Olimpíada de Ciências": {
+        "description": "Preparação para competições científicas regionais e estaduais no fim de semana",
+        "schedule": "Sábados, 13:00 - 16:00",
         "schedule_details": {
-            "days": ["Saturday"],
+            "days": ["Sábado"],
             "start_time": "13:00",
             "end_time": "16:00"
         },
         "max_participants": 18,
         "participants": ["isabella@mergington.edu", "lucas@mergington.edu"]
     },
-    "Sunday Chess Tournament": {
-        "description": "Weekly tournament for serious chess players with rankings",
-        "schedule": "Sundays, 2:00 PM - 5:00 PM",
+    "Torneio de Xadrez (Domingo)": {
+        "description": "Torneio semanal para enxadristas com ranking",
+        "schedule": "Domingos, 14:00 - 17:00",
         "schedule_details": {
-            "days": ["Sunday"],
+            "days": ["Domingo"],
             "start_time": "14:00",
             "end_time": "17:00"
         },
@@ -190,19 +190,19 @@ initial_activities = {
 initial_teachers = [
     {
         "username": "mrodriguez",
-        "display_name": "Ms. Rodriguez",
+        "display_name": "Profa. Rodriguez",
         "password": hash_password("art123"),
         "role": "teacher"
     },
     {
         "username": "mchen",
-        "display_name": "Mr. Chen",
+        "display_name": "Prof. Chen",
         "password": hash_password("chess456"),
         "role": "teacher"
     },
     {
         "username": "principal",
-        "display_name": "Principal Martinez",
+        "display_name": "Diretora Martinez",
         "password": hash_password("admin789"),
         "role": "admin"
     }

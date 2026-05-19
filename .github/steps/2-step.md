@@ -1,52 +1,65 @@
-## Step 2: Get a Pull Request Review
+## Etapa 2: Solicite uma Revisão de Pull Request
 
-Now that you've tested Copilot's local review capabilities and made some changes to improve the activities website, it's time to create a pull request and get Copilot's feedback on your proposed changes before they're merged into the main branch, just like one of the other teachers would. Let's see how Copilot reviews changes in the pull request process.
 
-### 📖 Theory: Pull Request Code Reviews
+Agora que você testou as capacidades de revisão local do Copilot e fez algumas melhorias no site de atividades, é hora de criar um pull request e obter o feedback do Copilot sobre suas mudanças antes de mesclá-las na branch principal, assim como outro professor faria. Vamos ver como o Copilot revisa mudanças no processo de pull request.
 
-GitHub Copilot analyzes your code and provides intelligent feedback with actionable suggestions you can apply instantly. Each code review consumes one [Premium Request Unit (PRU)](https://docs.github.com/en/copilot/concepts/billing/copilot-requests) from the requester.
+### 📖 Teoria: Revisão de Código em Pull Requests
+
+
+O GitHub Copilot analisa seu código e fornece feedback inteligente com sugestões acionáveis que você pode aplicar instantaneamente. Cada revisão de código consome uma [Unidade de Solicitação Premium (PRU)](https://docs.github.com/en/copilot/concepts/billing/copilot-requests) do solicitante.
+
 
 > [!IMPORTANT]
-> Use [code review responsibly](https://docs.github.com/en/copilot/responsible-use/code-review) - Copilot is trained to be familiar with many common security concerns, but it is not meant to replace dedicated security tools, guidelines, and standards. Please use of the correct tools for the job.
+> Use a [revisão de código de forma responsável](https://docs.github.com/en/copilot/responsible-use/code-review) - O Copilot foi treinado para conhecer muitas preocupações comuns de segurança, mas não deve substituir ferramentas, diretrizes e padrões dedicados. Use sempre as ferramentas corretas para cada situação.
 
-**Key Capabilities:**
 
-- **Automated Analysis**: Reviews code for quality, security, and performance issues
-- **Actionable Suggestions**: Provides specific recommendations with suggested code changes
-- **Integration**: Works seamlessly with GitHub's native pull request flow, the same as regular peer feedback
-- **Non-blocking**: Provides "Comment" reviews that don't block merging or count toward required approvals
-- **Customizable**: Supports custom instructions to align with team standards
-- **Secure**: Operates within GitHub's secure infrastructure
+**Principais Capacidades:**
 
-For more information, see the [GitHub Copilot code review documentation](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review).
 
-### ⌨️ Activity: Request a review
+- **Análise automatizada**: Revisa o código em busca de problemas de qualidade, segurança e performance
+- **Sugestões acionáveis**: Fornece recomendações específicas com sugestões de alteração de código
+- **Integração**: Funciona perfeitamente com o fluxo nativo de pull requests do GitHub, igual ao feedback de colegas
+- **Não bloqueante**: Fornece revisões do tipo "Comentário" que não bloqueiam a mesclagem nem contam para aprovações obrigatórias
+- **Personalizável**: Suporta instruções customizadas para alinhar com os padrões do time
+- **Seguro**: Opera dentro da infraestrutura segura do GitHub
 
-1. If needed, open another web browser tab and navigate to this exercise repository.
 
-1. Start a new pull request. Enter the following details and click the **Create pull request** button.
+Para mais informações, veja a [documentação de revisão de código do GitHub Copilot](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review).
+
+### ⌨️ Atividade: Solicite uma revisão
+
+
+1. Se necessário, abra outra aba do navegador e acesse este repositório do exercício.
+
+
+2. Inicie um novo pull request. Preencha os detalhes abaixo e clique em **Create pull request**.
+
 
    - **compare:** `add-announcement-banner`
    - **target:** `main`
    - **title:** `Add announcement banner`
 
-1. In the right-side details area, find the **Reviewers** menu. Click on the **settings icon** to show a list of available reviewers and select **Copilot**.
+
+3. Na área de detalhes à direita, encontre o menu **Reviewers**. Clique no **ícone de configurações** para mostrar a lista de revisores disponíveis e selecione **Copilot**.
 
    <img width="300" alt="screenshot of reviewers menu" src="https://github.com/user-attachments/assets/0f9f2e86-51b7-4542-82a1-afb6a22ab3ca"/>
 
-1. Wait a moment for Copilot to review the changes and add comments to your pull request. Notice an entry was added to the conversation log.
+
+4. Aguarde um momento para o Copilot revisar as mudanças e adicionar comentários ao seu pull request. Note que uma entrada foi adicionada ao log de conversas.
 
    <img width="300" alt="new log entry - requested review from copilot" src="https://github.com/user-attachments/assets/3e522bda-e68e-4469-93f4-a7ad103cca97"/>
 
    <img width="500" alt="new log entry - copilot's PR summary" src="https://github.com/user-attachments/assets/0a870950-560e-4df8-80d5-2b93f1be99ab"/>
 
-1. With the review requested, wait a moment for Mona to check your work, provide feedback, and share the next lesson.
+
+5. Com a revisão solicitada, aguarde um momento para a Mona checar seu trabalho, fornecer feedback e compartilhar a próxima lição.
+
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>Está com problemas? 🤷</summary><br/>
 
-- If Copilot doesn't appear in the reviewers list, ensure your repository has Copilot enabled
-- If Copilot doesn't appear in the reviewers list, check your subscription plan. It is not available for free tier.
-- Sometimes reviews take a minute or two to complete.
+- Se o Copilot não aparecer na lista de revisores, verifique se o repositório tem o Copilot habilitado
+- Se o Copilot não aparecer na lista de revisores, confira seu plano de assinatura. Não está disponível no plano gratuito.
+- Às vezes, as revisões levam um ou dois minutos para serem concluídas.
 
 </details>

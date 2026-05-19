@@ -1,25 +1,32 @@
-## Step 3: Customize Your Review
+## Etapa 3: Personalize Sua Revisão
 
-The school's coding standards are crucial for maintaining the activities website. You've noticed that teachers are using different visual styles and coding patterns. With such diverse programming backgrounds and priorities among your teacher-collaborators, let's customize Copilot's review behavior to align with the school's educational programming standards.
 
-### 📖 Theory: Repository Custom Instructions
+Os padrões de codificação da escola são cruciais para manter o site de atividades. Você percebeu que os professores estão usando estilos visuais e padrões de código diferentes. Com tanta diversidade de experiências e prioridades entre os professores-colaboradores, vamos personalizar o comportamento de revisão do Copilot para alinhar com os padrões educacionais da escola.
 
-Repository custom instructions allow you to provide Copilot with context about your project standards and preferences. By creating instruction files, you can ensure Copilot's suggestions consistently follow your team's conventions and focus on your specific requirements. You can even have copilot analyze your project and [generate instructions](https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_generate-an-instructions-file-for-your-workspace) for you!
+### 📖 Teoria: Instruções Personalizadas do Repositório
 
-**Types of Instructions:**
 
-- **Repository-wide instructions**: Applies to all code in the repository. Ex: `.github/copilot-instructions.md`
-- **Path-specific instructions**: Applies to specific files to create focused criteria for different parts of your codebase. Ex: `.github/instructions/NAME.instructions.md`.
+As instruções personalizadas do repositório permitem fornecer ao Copilot contexto sobre os padrões e preferências do seu projeto. Criando arquivos de instrução, você garante que as sugestões do Copilot sigam consistentemente as convenções do seu time e foquem nos requisitos específicos. Você pode até pedir para o Copilot analisar seu projeto e [gerar instruções](https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_generate-an-instructions-file-for-your-workspace) para você!
 
-Instructions are written in natural language with Markdown format and typically include:
 
-- Security requirements and checklists
-- Code standards and conventions
-- Performance optimization priorities
-- Team-specific preferences and style guides
-- Language-specific review criteria
+**Tipos de Instruções:**
 
-Path-specific instruction files include [YAML front matter](https://docs.github.com/en/contributing/writing-for-github-docs/using-yaml-frontmatter) with file [glob patterns](https://code.visualstudio.com/docs/editor/glob-patterns) to target specific files and directories. Examples:
+
+- **Instruções para o repositório inteiro**: Se aplicam a todo o código do repositório. Ex: `.github/copilot-instructions.md`
+- **Instruções específicas por caminho**: Se aplicam a arquivos específicos para criar critérios focados em diferentes partes do código. Ex: `.github/instructions/NOME.instructions.md`.
+
+
+As instruções são escritas em linguagem natural, no formato Markdown, e normalmente incluem:
+
+
+- Requisitos e checklists de segurança
+- Padrões e convenções de código
+- Prioridades de otimização de performance
+- Preferências e guias de estilo do time
+- Critérios de revisão específicos por linguagem
+
+
+Arquivos de instrução específicos por caminho incluem [YAML front matter](https://docs.github.com/en/contributing/writing-for-github-docs/using-yaml-frontmatter) com [glob patterns](https://code.visualstudio.com/docs/editor/glob-patterns) para direcionar arquivos e diretórios específicos. Exemplos:
 
 ```yaml
 ---
@@ -35,119 +42,134 @@ applyTo: "docs/*.md,README.md"
 # Documentation Guidelines ...
 ```
 
+
 > [!TIP]
-> Repository [custom instructions](https://docs.github.com/en/copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot) work for both local VS Code code reviews and pull request code reviews, ensuring consistency across your development workflow.
+> As [instruções personalizadas](https://docs.github.com/en/copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot) funcionam tanto para revisões locais no VS Code quanto para pull requests, garantindo consistência em todo o fluxo de desenvolvimento.
 
-### ⌨️ Activity: Add general instructions
+### ⌨️ Atividade: Adicione instruções gerais
 
-Let's customize Copilot's review considerations by adding custom instructions.
 
-1. In VS Code, ensure you are still on the `add-announcement-banner` branch.
+Vamos personalizar os critérios de revisão do Copilot adicionando instruções customizadas.
 
-1. Create a file for general repository guidelines.
 
-   File location and name:
+1. No VS Code, certifique-se de que ainda está na branch `add-announcement-banner`.
+
+
+2. Crie um arquivo para as diretrizes gerais do repositório.
+
+
+   Localização e nome do arquivo:
 
    ```txt
    .github/copilot-instructions.md
    ```
 
-   Content:
+
+   Conteúdo:
 
    ```markdown
-   ## Security
+   ## Segurança
 
-   - Validate input sanitization practices.
-   - Search for risks that might expose user data.
-   - Prefer loading configuration and content from the database instead of hard coded content. If absolutely necessary, load it from environment variables or a non-committed config file.
+   - Valide práticas de sanitização de entrada de dados.
+   - Procure riscos que possam expor dados de usuários.
+   - Prefira carregar configurações e conteúdos do banco de dados ao invés de valores fixos no código. Se for absolutamente necessário, use variáveis de ambiente ou arquivos de configuração não versionados.
 
-   ## Code Quality
+   ## Qualidade do Código
 
-   - Use consistent naming conventions.
-   - Try to reduce code duplication.
-   - Prefer maintainability and readability over optimization.
-   - If a method is used a lot, try to optimize it for performance.
-   - Prefer explicit error handling over silent failures.
+   - Use convenções de nomenclatura consistentes.
+   - Tente reduzir duplicação de código.
+   - Prefira manutenibilidade e legibilidade à otimização prematura.
+   - Se um método for muito utilizado, tente otimizá-lo para performance.
+   - Prefira tratamento explícito de erros a falhas silenciosas.
    ```
 
-### ⌨️ Activity: Add focused instructions
+### ⌨️ Atividade: Adicione instruções específicas
 
-Let's create specific Copilot's review considerations for the frontend and backend.
 
-1. Create a file for the frontend-specific guidelines.
+Vamos criar critérios de revisão específicos do Copilot para o frontend e backend.
 
-   > ❗️ **Important**: Make sure to put file-specific instructions in the `.github/instructions/` folder, not the `.github/` folder.
 
-   File location and name:
+3. Crie um arquivo para as diretrizes específicas do frontend.
+
+
+> [!IMPORTANT]
+> Certifique-se de colocar instruções específicas de arquivo na pasta `.github/instructions/`, não na pasta `.github/`.
+
+
+   Localização e nome do arquivo:
 
    ```txt
    .github/instructions/frontend.instructions.md
    ```
 
-   Content:
+   Conteúdo:
 
    ```markdown
    ---
    applyTo: "*.html,*.css,*.js"
    ---
 
-   ## Frontend Guidelines
+   ## Diretrizes de Frontend
 
-   - Use accessibility attributes (alt text, aria labels) and color schemes.
-   - Use responsive design for compatibility with mobile devices.
-   - Validate HTML structure and semantic elements
+   - Use atributos de acessibilidade (alt text, aria labels) e esquemas de cores.
+   - Use design responsivo para compatibilidade com dispositivos móveis.
+   - Valide a estrutura HTML e elementos semânticos
    ```
 
-1. Create a file for the backend-specific guidelines.
+4. Crie um arquivo para as diretrizes específicas do backend.
 
-   File location and name:
+   Localização e nome do arquivo:
 
    ```txt
    .github/instructions/backend.instructions.md
    ```
 
-   Content:
+   Conteúdo:
 
    ```markdown
    ---
    applyTo: "backend/**/*,*.py"
    ---
 
-   ## Backend Guidelines
+   ## Diretrizes de Backend
 
-   - All API endpoints must be defined in the `routers` folder.
-   - Load example database content from the `database.py` file.
-   - Error handling is only logged on the server. Do not propagate to the frontend.
-   - Ensure all APIs are explained in the documentation.
-   - Verify changes in the backend are reflected in the frontend (`src/static/**`). If possible breaking changes are found, mention them to the developer.
+   - Todos os endpoints de API devem ser definidos na pasta `routers`.
+   - Carregue conteúdo de exemplo do banco de dados a partir do arquivo `database.py`.
+   - O tratamento de erros deve ser registrado apenas no servidor. Não propague para o frontend.
+   - Garanta que todas as APIs estejam explicadas na documentação.
+   - Verifique se mudanças no backend se refletem no frontend (`src/static/**`). Se encontrar possíveis breaking changes, mencione ao desenvolvedor.
    ```
 
-1. Commit and push the instruction files.
+
+5. Faça commit e push dos arquivos de instrução.
+
 
 > [!TIP]
-> VS Code has a built-in commands to help manage instructions. Try opening the command pallette and searching for `instructions`.
+> O VS Code possui comandos integrados para ajudar a gerenciar instruções. Tente abrir a paleta de comandos e buscar por `instructions`.
 
-### ⌨️ Activity: Request another review
+### ⌨️ Atividade: Solicite outra revisão
 
-With our new instructions defined, Copilot now has a better idea of what is important for our project. Let's ask for another review.
+Com nossas novas instruções definidas, o Copilot agora entende melhor o que é importante para nosso projeto. Vamos pedir outra revisão.
 
-1. In VS Code, Ensure the instructions are indeed committed and push to the repository.
+6. No VS Code, certifique-se de que as instruções foram realmente commitadas e faça push para o repositório.
 
-1. In the web browser, return to the recently created pull request.
+7. No navegador, retorne ao pull request criado recentemente.
 
-1. In the top right, find the **Reviewers** menu and **Re-request review** button next to **Copilot**. Click it and wait a moment for Copilot to add comments on the pull request.
+8. No canto superior direito, encontre o menu **Reviewers** e o botão **Re-request review** ao lado de **Copilot**. Clique nele e aguarde um momento para o Copilot adicionar comentários ao pull request.
 
-   <img width="300" alt="screenshot of re-review button" src="https://github.com/user-attachments/assets/c45aa8de-278d-46e7-bfe2-2dc6b574e11e"/>
+   <img width="300" alt="botão de re-revisão" src="https://github.com/user-attachments/assets/c45aa8de-278d-46e7-bfe2-2dc6b574e11e"/>
 
-   > 🪧 **Note:** If you are too quick after pushing new commits, you may have to wait a moment for the button to appear, or refresh the page.
 
-1. Observe that Copilot's feedback now differs from the previous review.
+> [!NOTE]
+> Se você for rápido demais após enviar novos commits, talvez precise esperar um pouco para o botão aparecer, ou atualizar a página.
 
-1. With the review requested, wait a moment for Mona to check your work, provide feedback, and share the next lesson.
+9. Observe que o feedback do Copilot agora é diferente da revisão anterior.
+
+10. Com a revisão solicitada, aguarde um momento para a Mona checar seu trabalho, fornecer feedback e compartilhar a próxima lição.
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>Está com problemas? 🤷</summary><br/>
 
-- If you forgot to add a custom instruction (or made a typo), try fixing the mistake and asking Copilot for another review. This will inform Mona to check your work again.
+- Se você esqueceu de adicionar uma instrução personalizada (ou cometeu um erro de digitação), tente corrigir o erro e pedir outra revisão ao Copilot. Isso informará a Mona para checar seu trabalho novamente.
 
 </details>

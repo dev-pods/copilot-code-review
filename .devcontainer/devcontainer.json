@@ -12,12 +12,17 @@
   "postStartCommand": "bash ./.devcontainer/postStart.sh",
   "customizations": {
     "vscode": {
-      "extensions": [
-        "GitHub.copilot",
-        "GitHub.copilot-chat",
-        "ms-python.python",
-        "ms-python.debugpy"
-      ]
-    }
+        "extensions": [
+          "GitHub.copilot",
+          "GitHub.copilot-chat",
+          "ms-python.python",
+          "ms-python.debugpy"
+        ],
+        "settings": {
+          "github.copilot.enable": true,
+          "github.copilot.enableCodeReview": true,
+          "github.copilot.experimentalFeatures": true
+        }
+      }
   }
 }

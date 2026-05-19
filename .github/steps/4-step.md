@@ -1,122 +1,158 @@
-## Step 4: Automate Reviews
+## Etapa 4: Automatize as Revisões
 
-The tailored reviews seem to be working great, however there's a problem. They aren't technically required. Manually requesting Copilot reviews clearly isn't sustainable when you have multiple teachers contributing to the activities website. You want every pull request to automatically receive Copilot's feedback, especially since there are varying levels of programming experience among your collaborators. Let's set up repository rulesets to require Copilot reviews on all changes.
 
-### 📖 Theory: Repository Rulesets for Automated Reviews
+As revisões personalizadas parecem estar funcionando muito bem, mas há um problema: elas não são tecnicamente obrigatórias. Solicitar revisões do Copilot manualmente não é sustentável quando há vários professores contribuindo para o site de atividades. Você quer que todo pull request receba automaticamente o feedback do Copilot, especialmente porque há diferentes níveis de experiência em programação entre os colaboradores. Vamos configurar regras do repositório para exigir revisões do Copilot em todas as mudanças.
 
-Repository rulesets allow you to enforce automatic code reviews on all pull requests, ensuring consistent quality checks without relying on developers to manually request reviews or remember to follow documentation.
+### 📖 Teoria: Regras de Repositório para Revisões Automáticas
 
-Each code review consumes one [Premium Request Unit (PRU)](https://docs.github.com/en/copilot/concepts/billing/copilot-requests) from the author of the pull request.
 
-**Enforcement Options:**
+As regras do repositório permitem impor revisões automáticas de código em todos os pull requests, garantindo verificações de qualidade consistentes sem depender dos desenvolvedores para solicitar revisões manualmente ou lembrar de seguir a documentação.
 
-- **Repository-level**: All new pull requests in the specific repository
-- **Branch-specific**: Target specific branches by filters and name patterns
-- **Organization-level**: Apply rule sets across multiple repositories
 
-**Key Benefits:**
+Cada revisão de código consome uma [Unidade de Solicitação Premium (PRU)](https://docs.github.com/en/copilot/concepts/billing/copilot-requests) do autor do pull request.
 
-- Consistent code quality across all contributions
-- Automatic enforcement without manual intervention
-- Configurable based on branch protection needs
-- Integration with existing GitHub workflow permissions
 
-For more information, see the [repository rulesets documentation](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
+**Opções de Aplicação:**
 
-### ⌨️ Activity: Create a repository ruleset
 
-1. In the top navigation, select the **Settings** tab.
+- **Nível de repositório**: Todos os novos pull requests no repositório específico
+- **Nível de branch**: Direciona branches específicas por filtros e padrões de nome
+- **Nível de organização**: Aplica regras em múltiplos repositórios
 
-1. In the left navigation, expand **Rules** and select **Rulesets**.
 
-1. Click the **New ruleset** button and select the **New branch ruleset** option.
+**Principais Benefícios:**
 
-1. Set the ruleset name and status:
+
+- Qualidade de código consistente em todas as contribuições
+- Aplicação automática sem intervenção manual
+- Configurável conforme as necessidades de proteção de branch
+- Integração com as permissões do fluxo de trabalho do GitHub
+
+
+Para mais informações, veja a [documentação de regras de repositório](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
+
+### ⌨️ Atividade: Crie uma regra de repositório
+
+
+1. No menu superior, selecione a aba **Settings**.
+
+
+2. No menu à esquerda, expanda **Rules** e selecione **Rulesets**.
+
+
+3. Clique no botão **New ruleset** e selecione a opção **New branch ruleset**.
+
+
+4. Defina o nome e o status da regra:
+
 
    - **Ruleset Name**: `Require Copilot Reviews`
    - **Enforcement Status**: `Active`
 
-1. Under **Target branches**, add protections for the `main` branch.
 
-   1. Click **Add target** and **Include default branch**.
-   1. Click **Add target** and **Include by pattern**.
-   1. Enter `main` and click the **Add inclusion pattern** button.
+5. Em **Target branches**, adicione proteções para a branch `main`.
+   
+
+   - Clique em **Add target** e **Include default branch**.
+   - Clique em **Add target** e **Include by pattern**.
+   - Digite `main` e clique em **Add inclusion pattern**.
+
 
    <img width="300" alt="screenshot of target branches" src="https://github.com/user-attachments/assets/217f205c-7a61-4ffa-a0a6-7e76ff8d7906"/>
 
-1. Under **Rules**, enable the following options:
 
-   - **Require a pull request before merging**: ☑️
-   - **Require conversation resolution before merging**: ☑️
-   - **Automatically request Copilot code review**: ☑️
+6. Em **Rules**, habilite as opções abaixo:
 
-1. Scroll to the bottom and click the **Create** button.
 
-1. Return to the open pull request.
+   - **Exigir pull request antes de mesclar**: ☑️
+   - **Exigir resolução de conversas antes de mesclar**: ☑️
+   - **Solicitar automaticamente revisão de código do Copilot**: ☑️
 
-1. Notice that the merge button is now disabled.
+
+7. Role até o final e clique em **Create**.
+
+
+8. Volte para o pull request aberto.
+
+
+9. Note que o botão de merge agora está desabilitado.
 
    <img width="300" alt="screenshot of disabled merge button" src="https://github.com/user-attachments/assets/28e4cb05-f09d-423d-8c77-8f0ec61c73ad"/>
 
-1. Click **Resolve conversation** for all current and outdated feedback from Copilot. It is not necessary to implement anything.
 
-1. Merge the pull request.
+10. Clique em **Resolve conversation** para todo feedback atual e antigo do Copilot. Não é necessário implementar nada.
 
-   > 🪧 **Note**: If the **Merge pull request** button doesn't activate, check for unresolved conversations in the outdated comments.
 
-1. With the pull request merged, wait a moment for Mona to check your work, provide feedback, and provide a final review. Nice work! You are all done! 🎉
+11. Faça o merge do pull request.
 
-### ⌨️ Activity: (optional) Test automatic reviews
-
-Not ready to finish yet? Are you concerned by the hard coded announcement banner? Us too!
-
-So... let's fix it! 🧑‍🚀🚀
 
 > [!NOTE]
-> You don't need "fix" the new Announcement feature. If you just want to test automatic reviews, you can just make a quick small change and start a new pull request.
+> Se o botão **Merge pull request** não ativar, verifique se há conversas não resolvidas nos comentários antigos.
 
-1. In VS Code, switch back to the `main` branch, pull the merged changes, and delete the `add-announcement-banner` branch.
 
-1. Create a new branch from `main` with the following name.
+12. Com o pull request mesclado, aguarde um momento para a Mona checar seu trabalho, fornecer feedback e fazer a revisão final. Parabéns! Você terminou! 🎉
+
+### ⌨️ Atividade: (opcional) Teste revisões automáticas
+
+
+Ainda não quer terminar? Está incomodado com o banner de anúncio hard coded? Nós também!
+
+
+Então... vamos corrigir isso! 🧑‍🚀🚀
+
+
+
+> [!NOTE]
+> Você não precisa "corrigir" o novo recurso de Anúncio. Se quiser apenas testar as revisões automáticas, basta fazer uma pequena alteração e abrir um novo pull request.
+
+
+13. No VS Code, volte para a branch `main`, puxe as alterações mescladas e exclua a branch `add-announcement-banner`.
+
+
+14. Crie uma nova branch a partir da `main` com o nome abaixo.
 
    ```txt
    enable-editing-announcements
    ```
 
-1. Open the Copilot Chat panel and ensure it is in **Agent mode**. Use the following prompt to ask Copilot to upgrade our new Announcements feature.
 
-   > 💡 **Tip**: The premium models (that use PRUs) are typically more robust and will require less, or no, followup prompts for refinement.
+15. Abra o painel do Copilot Chat e certifique-se de que está no **modo Agent**. Use o prompt abaixo para pedir ao Copilot que melhore o novo recurso de Anúncios.
+
+
+> [!TIP]
+> Os modelos premium (que usam PRUs) normalmente são mais robustos e exigem menos prompts de refinamento.
+
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
    > ```prompt
-   > The Announcement feature should not be hard coded.
+   > O recurso de Anúncio não deve ser hard coded.
    >
-   > - Make it driven from the database.
-   > - Add a button in the header that opens a dialog window. It lists all existing announcements and has controls to add/modify/delete them.
-   > - Only signed in users have access to manage announcements.
-   > - Announcements require an expiration date. Start date is optional.
-   > - Add an example message to the database initialization.
-   > - Don't worry about unit testing.
-   > - Make it pretty with a good UI/UX experience.
+   > - Faça com que seja alimentado pelo banco de dados.
+   > - Adicione um botão no cabeçalho que abre uma janela de diálogo. Ela lista todos os anúncios existentes e tem controles para adicionar/modificar/excluir.
+   > - Apenas usuários logados podem gerenciar anúncios.
+   > - Anúncios exigem data de expiração. Data de início é opcional.
+   > - Adicione uma mensagem de exemplo na inicialização do banco de dados.
+   > - Não se preocupe com testes unitários.
+   > - Capriche na experiência de UI/UX.
    > ```
 
-1. (optional) Run the application to test the changes and provide followup prompts to Copilot for further refinement.
+16. (opcional) Rode a aplicação para testar as mudanças e forneça prompts adicionais ao Copilot para refinar ainda mais.
 
-1. (optional) Before committing the changes, ask for a local review in VS Code.
+17. (opcional) Antes de fazer commit das mudanças, peça uma revisão local no VS Code.
 
-1. Commit and push the changes.
+18. Faça commit e push das alterações.
 
-1. Create a new Pull Request with the following details.
+19. Crie um novo Pull Request com os seguintes detalhes.
 
    - **compare:** `enable-editing-announcements`
    - **target:** `main`
    - **title:** `Enable Editing Announcements`
 
-1. Notice that Copilot was automatically added as a reviewer. Wait a moment for feedback.
+20. Note que o Copilot foi adicionado automaticamente como revisor. Aguarde um momento pelo feedback.
 
-1. (optional) Address any comments from Copilot.
+21. (opcional) Resolva quaisquer comentários do Copilot.
 
-1. Merge the pull request.
+22. Faça o merge do pull request.
 
-1. Nice work! You are all done, again! 🎉
+23. Muito bom! Você terminou tudo, de novo! 🎉

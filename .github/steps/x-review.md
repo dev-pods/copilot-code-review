@@ -1,22 +1,27 @@
-## Review
+## Revisão
 
-_Congratulations, you've completed this exercise! You're all set to review lots of contributions from your fellow teachers!_
+
+_Parabéns, você concluiu este exercício! Agora está pronto para revisar muitas contribuições dos seus colegas professores!_
 
 <img src="https://octodex.github.com/images/jetpacktocat.png" alt=celebrate width=150 align=right>
 
-You've implemented a comprehensive GitHub Copilot code review workflow for the school's extracurricular activities website. Nice work! 🎉
 
-### What you accomplished
+Você implementou um fluxo completo de revisão de código com o GitHub Copilot para o site de atividades extracurriculares da escola. Muito bom! 🎉
 
-In this exercise, you learned how to:
+### O que você realizou
 
-- **Request code reviews from Copilot in VS Code** for immediate feedback on uncommitted changes
-- **Assign Copilot as a reviewer on GitHub pull requests** to catch issues before merging
-- **Create custom instructions** to tailor review feedback to your team's standards and requirements
-- **Implement automatic code reviews** using repository rulesets for consistent quality enforcement
 
-### What's next?
+Neste exercício, você aprendeu a:
 
-- [Skills: Expand your team with Copilot coding agent](https://github.com/skills/expand-your-team-with-copilot)
-- [Skills: Customize your GitHub Copilot Experience](https://github.com/skills/customize-your-github-copilot-experience)
-- [Skills: AI in Actions](https://github.com/skills/ai-in-actions)
+
+- **Solicitar revisões de código do Copilot no VS Code** para feedback imediato sobre alterações não commitadas
+- **Atribuir o Copilot como revisor em pull requests do GitHub** para identificar problemas antes de mesclar
+- **Criar instruções personalizadas** para adaptar o feedback de revisão aos padrões e requisitos do seu time
+- **Implementar revisões automáticas de código** usando regras de repositório para garantir qualidade consistente
+
+### O que vem a seguir?
+
+
+- [Skills: Expanda seu time com o agente de código Copilot](https://github.com/skills/expand-your-team-with-copilot)
+- [Skills: Personalize sua experiência com o GitHub Copilot](https://github.com/skills/customize-your-github-copilot-experience)
+- [Skills: IA em Ação](https://github.com/skills/ai-in-actions)

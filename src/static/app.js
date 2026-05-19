@@ -27,11 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Activity categories with corresponding colors
   const activityTypes = {
-    sports: { label: "Sports", color: "#e8f5e9", textColor: "#2e7d32" },
-    arts: { label: "Arts", color: "#f3e5f5", textColor: "#7b1fa2" },
-    academic: { label: "Academic", color: "#e3f2fd", textColor: "#1565c0" },
-    community: { label: "Community", color: "#fff3e0", textColor: "#e65100" },
-    technology: { label: "Technology", color: "#e8eaf6", textColor: "#3949ab" },
+    sports: { label: "Esportes", color: "#e8f5e9", textColor: "#2e7d32" },
+    arts: { label: "Artes", color: "#f3e5f5", textColor: "#7b1fa2" },
+    academic: { label: "Acadêmico", color: "#e3f2fd", textColor: "#1565c0" },
+    community: { label: "Comunidade", color: "#fff3e0", textColor: "#e65100" },
+    technology: { label: "Tecnologia", color: "#e8eaf6", textColor: "#3949ab" },
   };
 
   // State for activities and filters
@@ -46,9 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Time range mappings for the dropdown
   const timeRanges = {
-    morning: { start: "06:00", end: "08:00" }, // Before school hours
-    afternoon: { start: "15:00", end: "18:00" }, // After school hours
-    weekend: { days: ["Saturday", "Sunday"] }, // Weekend days
+    morning: { start: "06:00", end: "08:00" }, // Antes das aulas
+    afternoon: { start: "15:00", end: "18:00" }, // Após as aulas
+    weekend: { days: ["Saturday", "Sunday"] }, // Final de semana
   };
 
   // Initialize filters from active elements
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!response.ok) {
         showLoginMessage(
-          data.detail || "Invalid username or password",
+          data.detail || "Usuário ou senha inválidos",
           "error"
         );
         return false;
@@ -193,11 +193,11 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("currentUser", JSON.stringify(data));
       updateAuthUI();
       closeLoginModalHandler();
-      showMessage(`Welcome, ${currentUser.display_name}!`, "success");
+      showMessage(`Bem-vindo, ${currentUser.display_name}!`, "success");
       return true;
     } catch (error) {
       console.error("Error during login:", error);
-      showLoginMessage("Login failed. Please try again.", "error");
+      showLoginMessage("Falha no login. Por favor, tente novamente.", "error");
       return false;
     }
   }
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
     currentUser = null;
     localStorage.removeItem("currentUser");
     updateAuthUI();
-    showMessage("You have been logged out.", "info");
+    showMessage("Você saiu da conta.", "info");
   }
 
   // Show message in login modal
@@ -304,62 +304,100 @@ document.addEventListener("DOMContentLoaded", () => {
     return details.schedule;
   }
 
-  // Function to determine activity type (this would ideally come from backend)
+  // Função para determinar o tipo de atividade (idealmente viria do backend)
   function getActivityType(activityName, description) {
     const name = activityName.toLowerCase();
     const desc = description.toLowerCase();
 
+    // Esportes
     if (
+      name.includes("futebol") ||
+      name.includes("basquete") ||
+      name.includes("esporte") ||
+      name.includes("fitness") ||
       name.includes("soccer") ||
       name.includes("basketball") ||
       name.includes("sport") ||
-      name.includes("fitness") ||
-      desc.includes("team") ||
+      desc.includes("time") ||
+      desc.includes("jogo") ||
       desc.includes("game") ||
+      desc.includes("atlético") ||
       desc.includes("athletic")
     ) {
       return "sports";
-    } else if (
+    }
+    // Artes
+    if (
+      name.includes("arte") ||
       name.includes("art") ||
+      name.includes("música") ||
       name.includes("music") ||
+      name.includes("teatro") ||
       name.includes("theater") ||
       name.includes("drama") ||
+      desc.includes("criativo") ||
       desc.includes("creative") ||
+      desc.includes("pintura") ||
       desc.includes("paint")
     ) {
       return "arts";
-    } else if (
+    }
+    // Acadêmico
+    if (
+      name.includes("ciência") ||
       name.includes("science") ||
+      name.includes("matemática") ||
       name.includes("math") ||
+      name.includes("acadêmico") ||
       name.includes("academic") ||
+      name.includes("estudo") ||
       name.includes("study") ||
+      name.includes("olimpíada") ||
       name.includes("olympiad") ||
+      desc.includes("aprendizagem") ||
       desc.includes("learning") ||
+      desc.includes("educação") ||
       desc.includes("education") ||
+      desc.includes("competição") ||
       desc.includes("competition")
     ) {
       return "academic";
-    } else if (
+    }
+    // Comunidade
+    if (
+      name.includes("voluntário") ||
       name.includes("volunteer") ||
+      name.includes("comunidade") ||
       name.includes("community") ||
+      desc.includes("serviço") ||
       desc.includes("service") ||
+      desc.includes("voluntário") ||
       desc.includes("volunteer")
     ) {
       return "community";
-    } else if (
+    }
+    // Tecnologia
+    if (
+      name.includes("computador") ||
       name.includes("computer") ||
+      name.includes("programação") ||
       name.includes("coding") ||
+      name.includes("tecnologia") ||
       name.includes("tech") ||
+      name.includes("robótica") ||
       name.includes("robotics") ||
+      desc.includes("programação") ||
       desc.includes("programming") ||
+      desc.includes("tecnologia") ||
       desc.includes("technology") ||
       desc.includes("digital") ||
+      desc.includes("robô") ||
       desc.includes("robot")
     ) {
       return "technology";
     }
 
-    // Default to "academic" if no match
+    // Padrão: acadêmico
     return "academic";
   }
 
@@ -404,8 +442,8 @@ document.addEventListener("DOMContentLoaded", () => {
       displayFilteredActivities();
     } catch (error) {
       activitiesList.innerHTML =
-        "<p>Failed to load activities. Please try again later.</p>";
-      console.error("Error fetching activities:", error);
+        "<p>Falha ao carregar atividades. Por favor, tente novamente mais tarde.</p>";
+      console.error("Erro ao buscar atividades:", error);
     }
   }
 
@@ -459,8 +497,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (Object.keys(filteredActivities).length === 0) {
       activitiesList.innerHTML = `
         <div class="no-results">
-          <h4>No activities found</h4>
-          <p>Try adjusting your search or filter criteria</p>
+          <h4>Nenhuma atividade encontrada</h4>
+          <p>Tente ajustar sua busca ou filtros</p>
         </div>
       `;
       return;
@@ -513,8 +551,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="capacity-bar-fill" style="width: ${capacityPercentage}%"></div>
         </div>
         <div class="capacity-text">
-          <span>${takenSpots} enrolled</span>
-          <span>${spotsLeft} spots left</span>
+          <span>${takenSpots} inscritos</span>
+          <span>${spotsLeft} vagas restantes</span>
         </div>
       </div>
     `;
@@ -524,12 +562,12 @@ document.addEventListener("DOMContentLoaded", () => {
       <h4>${name}</h4>
       <p>${details.description}</p>
       <p class="tooltip">
-        <strong>Schedule:</strong> ${formattedSchedule}
-        <span class="tooltip-text">Regular meetings at this time throughout the semester</span>
+        <strong>Horário:</strong> ${formattedSchedule}
+        <span class="tooltip-text">Encontros regulares neste horário durante o semestre</span>
       </p>
       ${capacityIndicator}
       <div class="participants-list">
-        <h5>Current Participants:</h5>
+        <h5>Participantes atuais:</h5>
         <ul>
           ${details.participants
             .map(
@@ -541,7 +579,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   ? `
                 <span class="delete-participant tooltip" data-activity="${name}" data-email="${email}">
                   ✖
-                  <span class="tooltip-text">Unregister this student</span>
+                  <span class="tooltip-text">Remover este estudante</span>
                 </span>
               `
                   : ""
@@ -559,12 +597,12 @@ document.addEventListener("DOMContentLoaded", () => {
           <button class="register-button" data-activity="${name}" ${
                 isFull ? "disabled" : ""
               }>
-            ${isFull ? "Activity Full" : "Register Student"}
+            ${isFull ? "Atividade Lotada" : "Registrar Estudante"}
           </button>
         `
             : `
           <div class="auth-notice">
-            Teachers can register students.
+            Apenas professores podem registrar estudantes.
           </div>
         `
         }
@@ -684,11 +722,11 @@ document.addEventListener("DOMContentLoaded", () => {
       confirmDialog.className = "modal hidden";
       confirmDialog.innerHTML = `
         <div class="modal-content">
-          <h3>Confirm Action</h3>
+          <h3>Confirmar Ação</h3>
           <p id="confirm-message"></p>
           <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
-            <button id="cancel-button" class="cancel-btn">Cancel</button>
-            <button id="confirm-button" class="confirm-btn">Confirm</button>
+            <button id="cancel-button" class="cancel-btn">Cancelar</button>
+            <button id="confirm-button" class="confirm-btn">Confirmar</button>
           </div>
         </div>
       `;
@@ -757,7 +795,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Check if user is authenticated
     if (!currentUser) {
       showMessage(
-        "You must be logged in as a teacher to unregister students.",
+        "Você precisa estar logado como professor para remover estudantes.",
         "error"
       );
       return;
@@ -768,7 +806,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Show confirmation dialog
     showConfirmationDialog(
-      `Are you sure you want to unregister ${email} from ${activity}?`,
+      `Tem certeza que deseja remover ${email} da atividade ${activity}?`,
       async () => {
         try {
           const response = await fetch(
@@ -789,11 +827,11 @@ document.addEventListener("DOMContentLoaded", () => {
             // Refresh the activities list
             fetchActivities();
           } else {
-            showMessage(result.detail || "An error occurred", "error");
+            showMessage(result.detail || "Ocorreu um erro", "error");
           }
         } catch (error) {
-          showMessage("Failed to unregister. Please try again.", "error");
-          console.error("Error unregistering:", error);
+          showMessage("Falha ao remover estudante. Por favor, tente novamente.", "error");
+          console.error("Erro ao remover estudante:", error);
         }
       }
     );
@@ -818,7 +856,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Check if user is authenticated
     if (!currentUser) {
       showMessage(
-        "You must be logged in as a teacher to register students.",
+        "Você precisa estar logado como professor para registrar estudantes.",
         "error"
       );
       return;
@@ -844,14 +882,14 @@ document.addEventListener("DOMContentLoaded", () => {
       if (response.ok) {
         showMessage(result.message, "success");
         closeRegistrationModalHandler();
-        // Refresh the activities list after successful signup
+        // Atualiza a lista após registro
         fetchActivities();
       } else {
-        showMessage(result.detail || "An error occurred", "error");
+        showMessage(result.detail || "Ocorreu um erro", "error");
       }
     } catch (error) {
-      showMessage("Failed to sign up. Please try again.", "error");
-      console.error("Error signing up:", error);
+      showMessage("Falha ao registrar estudante. Por favor, tente novamente.", "error");
+      console.error("Erro ao registrar estudante:", error);
     }
   });
 

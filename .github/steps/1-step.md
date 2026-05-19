@@ -1,77 +1,95 @@
-## Step 1: Ask for a Review in VS Code
+## Etapa 1: Peça uma Revisão no VS Code
 
-Mergington High School has an Extracurricular Activities website. In the last months, you have added lots of features and it has become increasingly well used by your fellow staff and students.
 
-Now, multiple teachers want to help develop new features. This is great, but your energy is limited and if you don't have time to review changes, you fear the application will become messy. To scale your "review" availability, let's implement **GitHub Copilot code review**!
+A Mergington High School possui um site de Atividades Extracurriculares. Nos últimos meses, você adicionou muitos recursos e ele tem sido cada vez mais utilizado por outros professores e alunos.
 
-Before we implement automated code reviews with Copilot, it makes sense to try reviews locally in VS Code. This will help us better understand it, build our review criteria, and ensure all teacher-collaborators receive consistent feedback when they start contributing.
 
-### 📖 Theory: GitHub Copilot Local Code Review
+Agora, vários professores querem ajudar a desenvolver novos recursos. Isso é ótimo, mas sua energia é limitada e, se você não tiver tempo para revisar as mudanças, teme que a aplicação fique bagunçada. Para escalar sua disponibilidade de "revisão", vamos implementar o **GitHub Copilot code review**!
 
-GitHub Copilot can review your code directly in VS Code, providing immediate feedback on uncommitted changes. It even adds comments similar to the feedback in a pull request! This local review capability allows developers to catch issues before they even reach version control, improving code quality from the start. And maybe catch those embarrassing typos! 😅
 
-Key features:
+Antes de implementarmos revisões automáticas com o Copilot, faz sentido experimentar as revisões localmente no VS Code. Isso nos ajudará a entender melhor, construir nossos critérios de revisão e garantir que todos os professores-colaboradores recebam feedback consistente ao começar a contribuir.
 
-- **Local analysis** of uncommitted changes
-- **Code quality and style** recommendations
-- **Detection** of common security vulnerabilities
-- **Performance optimization** suggestions
+### 📖 Teoria: Revisão de Código Local com GitHub Copilot
 
-This immediate feedback helps you identify and fix issues early in your development process, making your code more robust before it even reaches a pull request.
 
-## ⌨️ Activity: Get to know the extracurricular activities site
+O GitHub Copilot pode revisar seu código diretamente no VS Code, fornecendo feedback imediato sobre alterações não commitadas. Ele até adiciona comentários semelhantes ao feedback de um pull request! Essa capacidade de revisão local permite que desenvolvedores encontrem problemas antes mesmo de chegarem ao controle de versão, melhorando a qualidade do código desde o início. E talvez até pegue aqueles erros de digitação constrangedores! 😅
 
-Before we start developing and reviewing, let's take a moment to understand the current site.
 
-1. Right-click the below button to open the **Create Codespace** page in a new tab. Use the default configuration.
+Principais recursos:
+
+
+- **Análise local** de alterações não commitadas
+- **Recomendações de qualidade e estilo de código**
+- **Detecção** de vulnerabilidades de segurança comuns
+- **Sugestões de otimização de performance**
+
+
+Esse feedback imediato ajuda você a identificar e corrigir problemas cedo no processo de desenvolvimento, tornando seu código mais robusto antes mesmo de chegar a um pull request.
+
+## ⌨️ Atividade: Conheça o site de atividades extracurriculares
+
+
+Antes de começarmos a desenvolver e revisar, vamos entender o site atual.
+
+
+1. Clique com o botão direito no botão abaixo para abrir a página **Create Codespace** em uma nova aba. Use a configuração padrão.
 
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/{{full_repo_name}}?quickstart=1)
 
-1. Wait some time for the environment to be prepared. It will automatically install all requirements and services.
 
-1. Validate the **GitHub Copilot** and **Python** extensions are installed and enabled.
+2. Aguarde um tempo para o ambiente ser preparado. Ele instalará automaticamente todos os requisitos e serviços.
+
+
+3. Valide que as extensões **GitHub Copilot** e **Python** estão instaladas e habilitadas.
 
    <img width="300" alt="copilot extension for VS Code" src="https://github.com/user-attachments/assets/ef1ef984-17fc-4b20-a9a6-65a866def468" /><br/>
    <img width="300" alt="python extension for VS Code" src="https://github.com/user-attachments/assets/3040c0f5-1658-47e2-a439-20504a384f77" />
 
-1. Try running the application. In the left sidebar, select the **Run and Debug** tab and then press the **Start Debugging** icon.
+
+4. Tente rodar a aplicação. Na barra lateral esquerda, selecione a aba **Run and Debug** e pressione o ícone **Start Debugging**.
 
    <img width="300" alt="run and debug" src="https://github.com/user-attachments/assets/50b27f2a-5eab-4827-9343-ab5bce62357e" />
 
+
    <details>
-   <summary>🤷 Having trouble?</summary><br/>
+   <summary>🤷 Está com problemas?</summary><br/>
 
-   If the **Run and Debug** area is empty, try reloading VS Code: Open the command palette (`Ctrl`+`Shift`+`P`) and search for `Developer: Reload Window`.
+   Se a área **Run and Debug** estiver vazia, tente recarregar o VS Code: Abra a paleta de comandos (`Ctrl`+`Shift`+`P`) e procure por `Developer: Reload Window`.
 
-   <img width="300" alt="empty run and debug panel" src="https://github.com/user-attachments/assets/0dbf1407-3a97-401a-a630-f462697082d6" />
+   <img width="300" alt="painel run and debug vazio" src="https://github.com/user-attachments/assets/0dbf1407-3a97-401a-a630-f462697082d6" />
 
    </details>
 
-1. Use the **Ports** tab to find the webpage address, open it, and verify it is running.
+
+5. Use a aba **Ports** para encontrar o endereço da página web, abra e verifique se está rodando.
 
    <img width="350" alt="ports tab" src="https://github.com/user-attachments/assets/8d24d6b5-202d-4109-8174-2f0d1e4d8d44" />
 
    ![Screenshot of Mergington High School WebApp](https://github.com/user-attachments/assets/5e1e7c1e-1b0e-4378-a5af-a266763e6544)
 
-### ⌨️ Activity: Ask Copilot for a review
+### ⌨️ Atividade: Peça uma revisão ao Copilot
 
-Let's add a simple banner feature for teachers to make announcements and then ask Copilot for feedback.
 
-1. In VS Code, create a new branch with the following name.
+Vamos adicionar um banner simples para professores fazerem comunicados e pedir feedback ao Copilot.
+
+
+6. No VS Code, crie um novo branch com o nome abaixo.
 
    ```txt
    add-announcement-banner
    ```
 
-1. Open the `src/static/index.html` file. Add the following after the `<body>` tag.
+
+7. Abra o arquivo `src/static/index.html`. Adicione o seguinte após a tag `<body>`.
 
    ```html
-   <div class="announcement-banner">
-     📢 Activity registration is open until the end of the month. Don't lose your spot!
-   </div>
+    <div class="announcement-banner">
+       📢 As inscrições para atividades estão abertas até o final do mês. Não perca sua vaga!
+    </div>
    ```
 
-1. Open the `src/static/styles.css` file. Add the following to the end.
+
+8. Abra o arquivo `src/static/styles.css`. Adicione o seguinte ao final do arquivo.
 
    ```css
    .announcement-banner {
@@ -83,35 +101,45 @@ Let's add a simple banner feature for teachers to make announcements and then as
    }
    ```
 
-1. (optional) Refresh the running app to see the change.
+
+9. (opcional) Atualize o app rodando para ver a mudança.
 
    <img width="400" alt="screenshot of site with announcement banner" src="https://github.com/user-attachments/assets/39de7fe0-58f2-4eba-a163-d3037b2b3b06"/>
 
-1. In VS Code, open the source control panel and ensure there are uncommitted changes.
 
-1. Hover over the **Changes** section to show various icons. Click the **Code Review** button and wait a moment for Copilot to add comments.
+10. No VS Code, abra o painel de controle de versão e garanta que há alterações não commitadas.
 
-   <img width="300" alt="screenshot of site with announcement banner" src="https://github.com/user-attachments/assets/6c52d550-d67b-4af9-99dd-e181695a4933"/>
 
-   > 💡 **TIP:** There are 3 levels of review available: `unstaged changes` and `staged changes` and `uncommitted changes`
 
-1. Expand the **Comments** panel to find a list of review feedback from Copilot.
+11. Peça uma revisão ao Copilot usando a paleta de comandos do VS Code:
 
-   <img width="300" alt="screenshot of problems control panel with comments from Copilot" src="https://github.com/user-attachments/assets/64c5efb6-9071-4511-b2a2-2dc85c9e929b"/>
+   - Pressione `Ctrl+Shift+P` (Windows/Linux) ou `Cmd+Shift+P` (Mac) para abrir a paleta de comandos.
+   - Digite `Chat: Review` e selecione a opção correspondente.
+   - Aguarde o Copilot analisar suas alterações e adicionar comentários de revisão.
 
-1. Use the **Apply** or **Discard** buttons to address Copilot's feedback.
 
-   <img width="300" alt="screenshot of inline comment with buttons to address feedback" src="https://github.com/user-attachments/assets/aef73097-acaf-4f5b-a52f-52a142bb413f"/>
+> [!TIP]
+> Você pode escolher revisar alterações não commitadas, staged ou todas as alterações não enviadas. Certifique-se de salvar os arquivos antes de pedir a revisão.
 
-1. Commit and push the Announcement related changes to the `add-announcement-banner` branch.
 
-1. With your changes pushed, wait a moment for Mona to check your work, provide feedback, and share the next lesson.
+12. Expanda o painel **Comments** para ver a lista de feedbacks do Copilot.
+
+
+   <img width="300" alt="painel de problemas com comentários do Copilot" src="https://github.com/user-attachments/assets/64c5efb6-9071-4511-b2a2-2dc85c9e929b"/>
+
+13. Use os botões **Aplicar** ou **Descartar** para tratar o feedback do Copilot.
+
+   <img width="300" alt="captura de tela de comentário inline com botões para tratar feedback" src="https://github.com/user-attachments/assets/aef73097-acaf-4f5b-a52f-52a142bb413f"/>
+
+14. Faça commit e push das alterações relacionadas ao Announcement na branch `add-announcement-banner`.
+
+15. Com suas alterações enviadas, aguarde um momento para a Mona checar seu trabalho, fornecer feedback e compartilhar a próxima lição.
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>Está com problemas? 🤷</summary><br/>
 
-- Copilot Review in VS Code only considers uncommitted changes. Don't commit before asking for the review.
-- If Copilot doesn't provide review feedback, make sure to click the correct review button for the grouping (unstaged, staged, uncommitted).
-- If Copilot doesn't see your changes, make sure to save the files first.
+- A Revisão do Copilot no VS Code só considera alterações não commitadas. Não faça commit antes de pedir a revisão.
+- Se o Copilot não fornecer feedback de revisão, certifique-se de clicar no botão correto para o agrupamento (unstaged, staged, uncommitted).
+- Se o Copilot não enxergar suas alterações, certifique-se de salvar os arquivos antes.
 
 </details>

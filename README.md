@@ -1,51 +1,51 @@
 # GitHub Copilot Code Review
 
-_Leverage GitHub Copilot code review to promote code quality and catch issues before they reach production._
+_Aproveite a revisão de código do GitHub Copilot para promover a qualidade do código e identificar problemas antes que cheguem à produção._
 
-## Welcome
+## Bem-vindo
 
-- **Who is this for**: Developers familiar with GitHub Copilot who want to scale code review
-- **What you'll learn**: How to use GitHub Copilot for automated code reviews, customize review criteria, and set up automatic reviews
-- **What you'll build**: You'll update the Mergington High School extracurricular activities website and customize Copilot to automatically review pull requests for you, enabling more teachers to contribute.
-- **Prerequisites**:
+- **Para quem é**: Desenvolvedores familiarizados com o GitHub Copilot que desejam escalar revisões de código
+- **O que você vai aprender**: Como usar o GitHub Copilot para revisões automáticas de código, personalizar critérios de revisão e configurar revisões automáticas
+- **O que você vai construir**: Você irá atualizar o site de atividades extracurriculares da Mergington High School e personalizar o Copilot para revisar pull requests automaticamente, permitindo que mais professores contribuam.
+- **Pré-requisitos**:
 
-  - GitHub Copilot subscription (paid plan is required)
-  - Familiarity with reviewing code in pull requests
-  - Familiarity with Codespaces, or [Code with Codespaces](https://github.com/skills/code-with-codespaces) Skills exercise
-  - Familiarity with GitHub Copilot, or [Getting Started with GitHub](https://github.com/skills/getting-started-with-github-copilot) Skills exercise
+  - Assinatura do GitHub Copilot (é necessário um plano pago)
+  - Familiaridade com revisão de código em pull requests
+  - Familiaridade com Codespaces, ou o exercício [Code with Codespaces](https://github.com/skills/code-with-codespaces)
+  - Familiaridade com o GitHub Copilot, ou o exercício [Getting Started with GitHub](https://github.com/skills/getting-started-with-github-copilot)
 
-- **How long**: This exercise takes less than 1 hour to complete.
+- **Duração**: Este exercício leva menos de 1 hora para ser concluído.
 
-In this exercise, you will:
+Neste exercício, você irá:
 
-1. Use GitHub Copilot to review code directly in VS Code for immediate feedback
-1. Request Copilot code reviews on pull requests
-1. Customize Copilot's review considerations with repository-specific instructions
-1. Configure automatic code reviews using repository rulesets
+1. Usar o GitHub Copilot para revisar código diretamente no VS Code e obter feedback imediato
+1. Solicitar revisões de código do Copilot em pull requests
+1. Personalizar os critérios de revisão do Copilot com instruções específicas do repositório
+1. Configurar revisões automáticas usando regras do repositório
 
-### How to start this exercise
+### Como iniciar este exercício
 
-Simply copy the exercise to your account, then give your favorite Octocat (Mona) **about 20 seconds** to prepare the first lesson, then **refresh the page**.
+Basta copiar o exercício para sua conta, aguardar cerca de 20 segundos para que o Octocat (Mona) prepare a primeira lição e então **atualizar a página**.
 
-[![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=skills&template_name=copilot-code-review&owner=%40me&name=skills-copilot-code-review&description=Exercise:+GitHub+Copilot+Code+Review&visibility=public)
+[![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=dev-pods&template_name=copilot-code-review&owner=%40me&name=skills-copilot-code-review&description=Exercise:+GitHub+Copilot+Code+Review&visibility=public)
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>Está com problemas? 🤷</summary><br/>
 
-When copying the exercise, we recommend the following settings:
+Ao copiar o exercício, recomendamos as seguintes configurações:
 
-- For owner, choose your personal account or an organization to host the repository.
+- Para proprietário, escolha sua conta pessoal ou uma organização para hospedar o repositório.
 
-- We recommend creating a public repository, since private repositories will use Actions minutes.
+- Recomendamos criar um repositório público, pois repositórios privados usarão minutos do Actions.
 
-If the exercise isn't ready in 20 seconds, please check the [Actions](../../actions) tab.
+Se o exercício não estiver pronto em 20 segundos, verifique a aba [Actions](../../actions).
 
-- Check to see if a job is running. Sometimes it simply takes a bit longer.
+- Veja se há um job em execução. Às vezes pode demorar um pouco mais.
 
-- If the page shows a failed job, please submit an issue. Nice, you found a bug! 🐛
+- Se a página mostrar um job com falha, por favor, abra uma issue. Parabéns, você encontrou um bug! 🐛
 
 </details>
 
 ---
 
-&copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+&copy; 2025 GitHub • [Código de Conduta](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) • [Licença MIT](https://gh.io/mit)
